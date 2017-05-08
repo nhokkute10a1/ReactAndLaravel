@@ -2,3 +2,5 @@
 https://github.com/root-two/react-native-drawer
 - react-native-tab-navigator
 https://github.com/expo/react-native-tab-navigator
+- react-native-swiper
+https://github.com/leecade/react-native-swiper

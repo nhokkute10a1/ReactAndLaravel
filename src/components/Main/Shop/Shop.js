@@ -18,7 +18,6 @@ import iSearch0 from './../../../media/appIcon/search0.png';
 
 import Header from './Header';
 
-import styles from './../../../style/style';
 export default class Shop extends Component {
 
     constructor(props) {
@@ -31,7 +30,6 @@ export default class Shop extends Component {
     }
 
     render() {
-        const { icon } = styles;
         return (
             <View style={{ flex: 1, backgroundColor: '#16A085' }}>
                 <Header onOpen={this.openMenu.bind(this)} />
@@ -40,11 +38,12 @@ export default class Shop extends Component {
                         selected={this.state.selectedTab === 'home'}
                         title="Home"
                         renderIcon={() =>
-                            <Image source={iHome0} style={icon} />
+                            <Image source={iHome0} style={{ width: 20, height: 20 }} />
                         }
                         renderSelectedIcon={() =>
-                            <Image source={iHome} style={icon} />
+                            <Image source={iHome} style={{ width: 20, height: 20 }} />
                         }
+                        selectedTitleStyle={{ color: '#16A085' }}
                         onPress={() => this.setState({ selectedTab: 'home' })}
                     >
                         <Homes />
@@ -53,11 +52,12 @@ export default class Shop extends Component {
                         selected={this.state.selectedTab === 'cart'}
                         title="Cart"
                         renderIcon={() =>
-                            <Image source={iCart0} style={icon} />
+                            <Image source={iCart0} style={{ width: 20, height: 20 }} />
                         }
                         renderSelectedIcon={() =>
-                            <Image source={iCart} style={icon} />
+                            <Image source={iCart} style={{ width: 20, height: 20 }} />
                         }
+                        selectedTitleStyle={{ color: '#16A085' }}
                         badgeText="1"
                         onPress={() => this.setState({ selectedTab: 'cart' })}
                     >
@@ -67,11 +67,12 @@ export default class Shop extends Component {
                         selected={this.state.selectedTab === 'search'}
                         title="Search"
                         renderIcon={() =>
-                            <Image source={iSearch0} style={icon} />
+                            <Image source={iSearch0} style={{ width: 20, height: 20 }} />
                         }
                         renderSelectedIcon={() =>
-                            <Image source={iSearch} style={icon} />
+                            <Image source={iSearch} style={{ width: 20, height: 20 }} />
                         }
+                        selectedTitleStyle={{ color: '#16A085' }}
                         onPress={() => this.setState({ selectedTab: 'search' })}
                     >
                         <Search />
@@ -80,11 +81,12 @@ export default class Shop extends Component {
                         selected={this.state.selectedTab === 'contact'}
                         title="Contact"
                         renderIcon={() =>
-                            <Image source={iContact0} style={icon} />
+                            <Image source={iContact0} style={{ width: 20, height: 20 }} />
                         }
                         renderSelectedIcon={() =>
-                            <Image source={iContact} style={icon} />
+                            <Image source={iContact} style={{ width: 20, height: 20 }} />
                         }
+                        selectedTitleStyle={{ color: '#16A085' }}
                         onPress={() => this.setState({ selectedTab: 'contact' })}
                     >
                         <Contact />

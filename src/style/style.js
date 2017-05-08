@@ -1,8 +1,8 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { height, width } = Dimensions.get('window');
-const imageWidth = width - 40 ;
-const imageHeight = ( imageWidth / 933) *465;
+const imageWidth = width - 40;
+const imageHeight = imageWidth / 2;
 
 const styles = StyleSheet.create({
     //header
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     //collection
     //933x465 - kich thuoc hinh 
     wapperColl: {
-        height: height * 0.33,
+        height: height * 0.35,
         backgroundColor: '#FFF',
         margin: 10,
         //mo
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
         padding: 10,
-        paddingTop: 0
+        paddingTop: 0,
+        justifyContent: 'space-between'
     },
     textStyle: {
         fontSize: 20,
@@ -49,7 +50,13 @@ const styles = StyleSheet.create({
     },
     imageStyle: {
          height: imageHeight, 
-         width: imageWidth
+         width: imageWidth,
+         justifyContent: 'center',
+         alignItems: 'center'
+    },
+    cateTitle: {
+        fontSize: 20,
+        color: '#9A9A9A'
     }
 });
 export default styles;

@@ -9,10 +9,10 @@ export default class Collection extends Component {
         const { wapperColl, textStyle, imageStyle } = styles;
         return (
             <View style={wapperColl}>
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1, justifyContent: 'center' }}>
                     <Text style={textStyle}>SPRING COLLECTION </Text>
                 </View>
-                <View style={{ flex: 4 }}>
+                <View style={{ flex: 4, justifyContent: 'flex-end' }}>
                     <Image source={iBanner} style={imageStyle} />
                 </View>
             </View>

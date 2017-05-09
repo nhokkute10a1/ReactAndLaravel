@@ -8,7 +8,7 @@ import iUser from '../../media/temp/profile.png';
 export default class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = { isLogin: true };
+        this.state = { isLogin: false };
     }
     gotoAuthentication() {
         const { navigator } = this.props;
@@ -28,7 +28,7 @@ export default class Menu extends Component {
         const { menuContainer, profile, btnStyle, btnText, btnSignInStyle, btnTextSignIn, loginContainer } = styles;
         const logoutJSX = (
             <View style={{ flex: 1 }}>
-                <TouchableOpacity style={btnStyle}>
+                <TouchableOpacity style={btnStyle} onPress={this.gotoAuthentication.bind(this)}>
                     <Text style={btnText}>SIGN IN</Text>
                 </TouchableOpacity>
             </View>

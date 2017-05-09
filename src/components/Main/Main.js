@@ -7,12 +7,17 @@ import Menu from './Menu';
 import Shop from './Shop/Shop';
 
 export default class Main extends Component {
+    // mo ra lun menu
+    componentDidMount() {
+       this.drawer.open();
+    }
     closeControlPanel = () => {
         this.drawer.close();
     };
     openControlPanel = () => {
         this.drawer.open();
     };
+    
     render() {
         const { navigator } = this.props;
         return (

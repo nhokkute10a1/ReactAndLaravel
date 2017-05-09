@@ -151,5 +151,70 @@ const styles = StyleSheet.create({
         //justifyContent: 'space-between',
         alignItems: 'center'
     },
+    //authentication
+    authentication: {
+        flex: 1,
+        backgroundColor: '#16A085',
+        padding: 20,
+        justifyContent: 'space-between',
+       
+    },
+    iconStyleAuthe: {
+        width: 30,
+        height: 30
+    },
+    rowAuthen: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    titleStyleAuthe: {
+        color: '#FFF',
+        fontSize: 25
+    },
+    controlStyle: {
+        flexDirection: 'row',
+        // rong full man hinh
+        alignSelf: 'stretch'
+    },
+    signInStyle: {
+        backgroundColor: '#FFF',
+        alignItems: 'center',
+        flex: 1,
+        paddingVertical: 15,
+        borderBottomLeftRadius: 20,
+        borderTopLeftRadius: 20,
+        marginRight: 1
+        },
+    signOutStyle: {
+        backgroundColor: '#FFF',
+        alignItems: 'center',
+        flex: 1,
+        paddingVertical: 15,
+        borderBottomRightRadius: 20,
+        borderTopRightRadius: 20,
+        marginLeft: 1
+    },
+    inActiveStyle: {
+        color: '#D7D7D7'
+    },
+    activeStyle: {
+        color: '#16A085'
+    },
+    inputStyle: {
+        backgroundColor: '#FFF',
+        height: 50,
+        marginBottom: 10,
+        borderRadius: 5,
+        paddingLeft: 30
+    },
+    btnsignIn: {
+        height: 50,
+        borderRadius: 20,
+        borderWidth:1,
+        borderColor: '#FFF',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 });
 export default styles;

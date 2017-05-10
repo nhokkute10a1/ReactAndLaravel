@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
         borderColor: '#FFF',
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    //
 });
 export default styles;

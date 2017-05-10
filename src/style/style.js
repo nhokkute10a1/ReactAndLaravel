@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#16A085',
         padding: 20,
         justifyContent: 'space-between',
-       
+
     },
     iconStyleAuthe: {
         width: 30,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         borderTopLeftRadius: 20,
         marginRight: 1
-        },
+    },
     signOutStyle: {
         backgroundColor: '#FFF',
         alignItems: 'center',
@@ -216,6 +216,66 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    //
+    //list product
+    containerList: {
+        flex: 1,
+        backgroundColor: '#E7E7E7'
+    },
+    wapperList: {
+        backgroundColor: '#FFF',
+        margin: 10,
+        borderRadius: 5,
+    },
+    header: {
+        height: height / 13,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 10
+    },
+    iconBack: {
+        width: 30,
+        height: 30
+    },
+    titleStyleList: {
+        color: '#C84182',
+        fontSize: 20
+    },
+    containerPro: {
+       flexDirection: 'row',
+       padding: 10,
+       borderTopColor: '#E7E7E7',
+        borderBottomColor: '#FFF',
+        borderLeftColor: '#FFF',
+        borderRightColor: '#FFF',
+        borderWidth: 1,
+        paddingVertical: 15
+    },
+    productInfo: {
+        justifyContent: 'space-between',
+        marginLeft: 10,
+        flex: 1 
+    },
+    lastRowInfo: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    imagePro: {
+        width: 90,
+        height: (90 * 452) / 361
+    },
+    txtName: {
+        color: '#ECECEC',
+        fontSize: 20,
+        fontWeight: '400'
+    },
+    txtPrice: {
+        color: '#C83D80'
+    },
+    txtShowDetail: {
+        color: '#D09DB7',
+        fontSize: 12
+    }
 });
 export default styles;

@@ -21,6 +21,8 @@ export default class Header extends Component {
                 <TextInput
                     style={textInput}
                     placeholder="What do you want to buy?"
+                    //an gach chan
+                    underlineColorAndroid={'transparent'}
                 />
             </View>
         );

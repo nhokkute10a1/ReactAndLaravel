@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     btnsignIn: {
         height: 50,
         borderRadius: 20,
-        borderWidth:1,
+        borderWidth: 1,
         borderColor: '#FFF',
         alignItems: 'center',
         justifyContent: 'center'

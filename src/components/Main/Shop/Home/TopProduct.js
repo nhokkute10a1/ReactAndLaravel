@@ -24,23 +24,35 @@ export default class TopProduct extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                   <TouchableOpacity style={productContainer} onPress={this.gotoProductDetail.bind(this)}>
+                    <TouchableOpacity
+                        style={productContainer}
+                        onPress={this.gotoProductDetail.bind(this)}
+                    >
                         <Image source={sp1} style={productImage} />
                         <Text style={productName}>Name</Text>
                         <Text style={productPrice}>250$</Text>
                     </TouchableOpacity>
-                   <TouchableOpacity style={productContainer} onPress={this.gotoProductDetail.bind(this)}>
+                    <TouchableOpacity
+                        style={productContainer}
+                        onPress={this.gotoProductDetail.bind(this)}
+                    >
                         <Image source={sp2} style={productImage} />
                         <Text style={productName}>Name</Text>
                         <Text style={productPrice}>150$</Text>
                     </TouchableOpacity>
                     <View style={{ height: 10, width }} />
-                   <TouchableOpacity style={productContainer} onPress={this.gotoProductDetail.bind(this)}>
+                    <TouchableOpacity
+                        style={productContainer}
+                        onPress={this.gotoProductDetail.bind(this)}
+                    >
                         <Image source={sp3} style={productImage} />
                         <Text style={productName}>Name</Text>
                         <Text style={productPrice}>250$</Text>
                     </TouchableOpacity>
-                   <TouchableOpacity style={productContainer} onPress={this.gotoProductDetail.bind(this)}>
+                    <TouchableOpacity
+                        style={productContainer}
+                        onPress={this.gotoProductDetail.bind(this)}
+                    >
                         <Image source={sp4} style={productImage} />
                         <Text style={productName}>Name</Text>
                         <Text style={productPrice}>150$</Text>

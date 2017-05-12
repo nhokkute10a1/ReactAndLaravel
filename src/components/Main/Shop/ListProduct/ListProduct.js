@@ -18,7 +18,7 @@ export default class ListProduct extends Component {
         const {
             header, containerList, iconBack, wapperList, titleStyleList,
             containerPro, productInfo, lastRowInfo, imagePro, txtName, txtPrice,
-           txtShowDetail 
+           txtShowDetail, colorView
     } = styles;
         return (
             <ScrollView style={containerList}>
@@ -38,7 +38,7 @@ export default class ListProduct extends Component {
                             <Text>Materia silk</Text>
                             <View style={lastRowInfo}>
                                 <Text>Color</Text>
-                                <View style={{ backgroundColor: 'cyan', height: 10, width: 10, borderRadius: 5 }} />
+                                <View style={colorView} />
                                 <TouchableOpacity onPress={this.gotoDetail.bind(this)}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
@@ -54,7 +54,7 @@ export default class ListProduct extends Component {
                             <Text>Materia silk</Text>
                             <View style={lastRowInfo}>
                                 <Text>Color</Text>
-                                <View style={{ backgroundColor: 'cyan', height: 10, width: 10, borderRadius: 5 }} />
+                                <View style={colorView} />
                                 <TouchableOpacity onPress={this.gotoDetail.bind(this)}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
@@ -69,7 +69,7 @@ export default class ListProduct extends Component {
                             <Text>Materia silk</Text>
                             <View style={lastRowInfo}>
                                 <Text>Color</Text>
-                                <View style={{ backgroundColor: 'cyan', height: 10, width: 10, borderRadius: 5 }} />
+                                <View style={colorView} />
                                 <TouchableOpacity onPress={this.gotoDetail.bind(this)}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
@@ -84,7 +84,7 @@ export default class ListProduct extends Component {
                             <Text>Materia silk</Text>
                             <View style={lastRowInfo}>
                                 <Text>Color</Text>
-                                <View style={{ backgroundColor: 'cyan', height: 10, width: 10, borderRadius: 5 }} />
+                                <View style={colorView} />
                                 <TouchableOpacity onPress={this.gotoDetail.bind(this)}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
@@ -99,7 +99,7 @@ export default class ListProduct extends Component {
                             <Text>Materia silk</Text>
                             <View style={lastRowInfo}>
                                 <Text>Color</Text>
-                                <View style={{ backgroundColor: 'cyan', height: 10, width: 10, borderRadius: 5 }} />
+                                <View style={colorView} />
                                 <TouchableOpacity onPress={this.gotoDetail.bind(this)}>
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>

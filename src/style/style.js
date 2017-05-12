@@ -242,9 +242,9 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     containerPro: {
-       flexDirection: 'row',
-       padding: 10,
-       borderTopColor: '#E7E7E7',
+        flexDirection: 'row',
+        padding: 10,
+        borderTopColor: '#E7E7E7',
         borderBottomColor: '#FFF',
         borderLeftColor: '#FFF',
         borderRightColor: '#FFF',
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     productInfo: {
         justifyContent: 'space-between',
         marginLeft: 10,
-        flex: 1 
+        flex: 1
     },
     lastRowInfo: {
         flexDirection: 'row',
@@ -276,6 +276,76 @@ const styles = StyleSheet.create({
     txtShowDetail: {
         color: '#D09DB7',
         fontSize: 12
+    },
+    colorView: {
+        backgroundColor: 'cyan',
+        height: 10,
+        width: 10,
+        borderRadius: 5
+    },
+    //product list
+    imageContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        margin: 10
+    },
+    footer: {
+       
+    },
+    titleContainerPro: {
+        borderBottomWidth: 1,
+        borderColor: '#F6F6F6',
+        marginHorizontal: 20,
+        paddingBottom: 5
+    },
+    textMain: {
+        paddingLeft: 20,
+        marginVertical: 10
+    },
+    textBlack: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#3F3F46'
+    },
+    textHighlight: {
+        fontSize: 20,
+        color: '#7D59C8'
+    },
+    textSmoke: {
+        fontSize: 20,
+        color: '#9A9A9A'
+    },
+    descContainer: {
+        margin: 10,
+        paddingTop: 10,
+        paddingHorizontal: 10
+    },
+    descStyle: {
+        color: '#AFAFAF'
+    },
+    txtMaterial: {
+        color: '#C21C70',
+        fontSize: 15,
+        fontWeight: '400',
+    },
+    txtColor: {
+        color: '#C21C70',
+        fontSize: 15,
+        fontWeight: '400',
+    },
+    viewStyle: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop: 15
+    },
+    colorPro: {
+        height: 15, 
+        width: 15, 
+        backgroundColor: 'cyan', 
+        borderRadius: 15, 
+        marginLeft: 10, 
+        borderWidth: 1, 
+        borderColor: '#C21C70'
     }
 });
 export default styles;

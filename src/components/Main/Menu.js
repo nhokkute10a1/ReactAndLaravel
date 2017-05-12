@@ -8,7 +8,7 @@ import iUser from '../../media/temp/profile.png';
 export default class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = { isLogin: false };
+        this.state = { isLogin: true };
     }
     gotoAuthentication() {
         const { navigator } = this.props;
@@ -25,7 +25,10 @@ export default class Menu extends Component {
 
 
     render() {
-        const { menuContainer, profile, btnStyle, btnText, btnSignInStyle, btnTextSignIn, loginContainer } = styles;
+        const {
+             menuContainer, profile, btnStyle, btnText, btnSignInStyle,
+            btnTextSignIn, loginContainer
+            } = styles;
         const logoutJSX = (
             <View style={{ flex: 1 }}>
                 <TouchableOpacity style={btnStyle} onPress={this.gotoAuthentication.bind(this)}>
@@ -33,18 +36,27 @@ export default class Menu extends Component {
                 </TouchableOpacity>
             </View>
         );
-        
+
         const loginJSX = (
             <View style={loginContainer}>
                 <Text style={{ color: '#FFF', }}>Đoàn Thu Thủy</Text>
                 <View style={{ marginTop: 100 }}>
-                    <TouchableOpacity style={btnSignInStyle} onPress={this.gotoChangeInfo.bind(this)}>
+                    <TouchableOpacity
+                        style={btnSignInStyle}
+                        onPress={this.gotoChangeInfo.bind(this)}
+                    >
                         <Text style={btnTextSignIn}>Change Info</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={btnSignInStyle} onPress={this.gotoOrderHistory.bind(this)}>
+                    <TouchableOpacity
+                        style={btnSignInStyle}
+                        onPress={this.gotoOrderHistory.bind(this)}
+                    >
                         <Text style={btnTextSignIn}>Order History</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={btnSignInStyle} onPress={this.gotoAuthentication.bind(this)}>
+                    <TouchableOpacity
+                        style={btnSignInStyle}
+                        onPress={this.gotoAuthentication.bind(this)}
+                    >
                         <Text style={btnTextSignIn}>Sign Out</Text>
                     </TouchableOpacity>
                 </View>
@@ -55,7 +67,7 @@ export default class Menu extends Component {
         return (
             <View style={menuContainer}>
                 <Image source={iUser} style={profile} />
-                { mainJSX}
+                {mainJSX}
             </View>
         );
     }

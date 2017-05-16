@@ -95,3 +95,4 @@ const styles = StyleSheet.create({
 });
 
 export default Contact;
+//https://github.com/vanpho93/UpdateUI

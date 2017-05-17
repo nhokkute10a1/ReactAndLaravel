@@ -27,11 +27,13 @@ class CartView extends Component {
         navigator.push({ name: 'PRODUCT_DETAIL' });
     }
     render() {
-        const { cartArray } = this.props;
         const { main, checkoutButton, checkoutTitle, wrapper,
             product, mainRight, productController,
             txtName, txtPrice, productImage, numberOfProduct,
             txtShowDetail, showDetailContainer } = styles;
+        const { cartArray } = this.props;
+        const arrTotal = cartArray.map(e => e.product.price * e.quantity);
+        const total = arrTotal.length ? arrTotal.reduce((a, b) => a + b) : 0;
         return (
             <View style={wrapper}>
                 <ListView
@@ -85,7 +87,7 @@ class CartView extends Component {
                 />
 
                 <TouchableOpacity style={checkoutButton}>
-                    <Text style={checkoutTitle}>TOTAL {1000}$ CHECKOUT NOW</Text>
+                    <Text style={checkoutTitle}>TOTAL {total}$ CHECKOUT NOW</Text>
                 </TouchableOpacity>
             </View>
         );

@@ -6,19 +6,23 @@ import ProductDetail from '../ProductDetail/ProductDetail';
 import ListProduct from '../ListProduct/ListProduct';
 
 export default class Homes extends Component {
-    state = { }
+    state = {}
     render() {
-        const { types } = this.props;
+        const { types, topProducts } = this.props;
         return (
-            <Navigator 
+            <Navigator
                 initialRoute={{ name: 'HOME_VIEW' }}
                 renderScene={(route, navigator) => {
                     switch (route.name) {
-                        case 'HOME_VIEW': 
-                            return <HomeView navigator={navigator} types={types} />;
+                        case 'HOME_VIEW':
+                            return (<HomeView
+                                navigator={navigator} types={types}
+                                topProducts={topProducts}
+                            />);
                         case 'LIST_PRODUCT':
                             return <ListProduct navigator={navigator} />;
-                        default: return <ProductDetail navigator={navigator} />;
+                        default:
+                            return <ProductDetail navigator={navigator} product={route.product} />;
                     }
                 }}
             />

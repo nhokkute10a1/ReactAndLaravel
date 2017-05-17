@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ListView } from 'react-native';
 
 import styles from '../../../../style/style';
 
-import sp1 from '../../../../media/temp/sp1.jpeg';
-import sp2 from '../../../../media/temp/sp2.jpeg';
-import sp3 from '../../../../media/temp/sp3.jpeg';
-import sp4 from '../../../../media/temp/sp4.jpeg';
-
+//import sp1 from '../../../../media/temp/sp1.jpeg';
+// import sp2 from '../../../../media/temp/sp2.jpeg';
+// import sp3 from '../../../../media/temp/sp3.jpeg';
+// import sp4 from '../../../../media/temp/sp4.jpeg';
+const url = 'http://192.168.56.1/api/images/product/';
 export default class TopProduct extends Component {
-    gotoProductDetail() {
+    constructor(props) {
+        super(props);
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+        const { topProducts } = this.props;
+        this.state = {
+            dataSource: ds.cloneWithRows(topProducts),
+        };
+    }
+    gotoProductDetail(product) {
         const { navigator } = this.props;
-        navigator.push({ name: 'PRODUCT_DETAIL' });
+        navigator.push({ name: 'PRODUCT_DETAIL', product });
     }
     render() {
         const { container, titleContainer, body, title,
@@ -24,44 +32,26 @@ export default class TopProduct extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    <TouchableOpacity
-                        style={productContainer}
-                        onPress={this.gotoProductDetail.bind(this)}
-                    >
-                        <Image source={sp1} style={productImage} />
-                        <Text style={productName}>Name</Text>
-                        <Text style={productPrice}>250$</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={productContainer}
-                        onPress={this.gotoProductDetail.bind(this)}
-                    >
-                        <Image source={sp2} style={productImage} />
-                        <Text style={productName}>Name</Text>
-                        <Text style={productPrice}>150$</Text>
-                    </TouchableOpacity>
-                    <View style={{ height: 10, width }} />
-                    <TouchableOpacity
-                        style={productContainer}
-                        onPress={this.gotoProductDetail.bind(this)}
-                    >
-                        <Image source={sp3} style={productImage} />
-                        <Text style={productName}>Name</Text>
-                        <Text style={productPrice}>250$</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={productContainer}
-                        onPress={this.gotoProductDetail.bind(this)}
-                    >
-                        <Image source={sp4} style={productImage} />
-                        <Text style={productName}>Name</Text>
-                        <Text style={productPrice}>150$</Text>
-                    </TouchableOpacity>
+                    {this.props.topProducts.map(e => (
+                        <TouchableOpacity
+                            style={productContainer}
+                            onPress={() => this.gotoProductDetail(e)} key={e.id}
+                        >
+                            <Image source={{ uri: `${url}${e.images[0]}` }} style={productImage} />
+                            <Text style={productName}>{e.name.toUpperCase()}</Text>
+                            <Text style={productPrice}>{e.price}$</Text>
+                        </TouchableOpacity>
+                    ))}
 
                 </View>
+                {/*xem log*/}
+                {/*<TouchableOpacity onPress={() => console.log(this.props.topProducts)}>
+                    <Text>LOG</Text>
+                </TouchableOpacity>*/}
             </View >
         );
     }
 }
 
-const { width } = Dimensions.get('window');
+//const { width } = Dimensions.get('window');
+

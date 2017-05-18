@@ -6,8 +6,8 @@ import Drawer from 'react-native-drawer';
 import Menu from './Menu';
 import Shop from './Shop/Shop';
 import checkLogin from '../../api/checkLogin';
-
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpYXQiOjE0OTUwNzM1MTYsImV4cGlyZSI6MTQ5NTI0NjMxNn0.V8UIiQoknAE2eMIrXZq1KuooJjrN7PYkn2R7mcWiNy0';
+import getToken from '../../api/getToken';
+import global  from '../global';
 
 export default class Main extends Component {
     // mo ra lun menu
@@ -15,8 +15,9 @@ export default class Main extends Component {
     //    this.drawer.open();
     // }
     componentDidMount() {
-        checkLogin(token)
-        .then(res => console.log('Check-login', res))
+        getToken()
+        .then(token => checkLogin(token))
+        .then(res => global.onSignIn(res.user))
         .catch(error => console.log(error));
     }
     closeControlPanel = () => {

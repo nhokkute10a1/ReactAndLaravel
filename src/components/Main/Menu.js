@@ -5,6 +5,8 @@ import styles from '../../style/style';
 import global from '../global';
 
 import iUser from '../../media/temp/profile.png';
+import saveToken from '../../api/saveToken';
+import getToken from '../../api/getToken';
 
 export default class Menu extends Component {
     constructor(props) {
@@ -14,6 +16,10 @@ export default class Menu extends Component {
     }
     onSignIn(user) {
         this.setState({ user });
+    }
+    onSignOut() {
+        this.setState({ user: null });
+        saveToken('');
     }
     gotoAuthentication() {
         const { navigator } = this.props;
@@ -61,7 +67,7 @@ export default class Menu extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={btnSignInStyle}
-                        onPress={this.gotoAuthentication.bind(this)}
+                        onPress={this.onSignOut.bind(this)}
                     >
                         <Text style={btnTextSignIn}>Sign Out</Text>
                     </TouchableOpacity>

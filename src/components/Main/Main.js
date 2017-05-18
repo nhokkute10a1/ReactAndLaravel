@@ -7,7 +7,8 @@ import Menu from './Menu';
 import Shop from './Shop/Shop';
 import checkLogin from '../../api/checkLogin';
 import getToken from '../../api/getToken';
-import global  from '../global';
+import refreshToken from '../../api/refreshToken';
+import global from '../global';
 
 export default class Main extends Component {
     // mo ra lun menu
@@ -18,7 +19,9 @@ export default class Main extends Component {
         getToken()
         .then(token => checkLogin(token))
         .then(res => global.onSignIn(res.user))
-        .catch(error => console.log(error));
+        .catch(error => console.log('Loi Check Token', error));
+
+        //check time token
     }
     closeControlPanel = () => {
         this.drawer.close();

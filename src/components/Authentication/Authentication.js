@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import {
-    View, Text, TouchableOpacity, Image, TextInput
+    View, Text, TouchableOpacity, Image
 } from 'react-native';
 
 import styles from '../../style/style';
+
+import SignIn from '../Authentication/SignIn';
+import SignUp from '../Authentication/SignUp';
 
 import iBack from '../../media/appIcon/back_white.png';
 import iLogo from '../../media/appIcon/ic_logo.png';
@@ -12,6 +15,9 @@ export default class Authentication extends Component {
     constructor(props) {
         super(props);
         this.state = { isSignIn: true };
+    }
+    gotoSignIn() {
+        this.setState({ isSignIn: true });
     }
     signIn() {
         this.setState({ isSignIn: true });
@@ -27,45 +33,12 @@ export default class Authentication extends Component {
         const {
             authentication, signOutStyle, signInStyle, iconStyleAuthe,
             controlStyle, rowAuthen, titleStyleAuthe, inActiveStyle, activeStyle,
-            inputStyle, btnsignIn
     } = styles;
         const signInJSX = (
-            <View>
-                <TextInput
-                    style={inputStyle} placeholder="Enter your email"
-                    underlineColorAndroid={'transparent'}
-                />
-                <TextInput
-                    style={inputStyle} placeholder="Enter your password"
-                    underlineColorAndroid={'transparent'}
-                />
-                <TouchableOpacity style={btnsignIn} >
-                    <Text style={{ color: '#FFF' }}>SIGN IN NOW</Text>
-                </TouchableOpacity>
-            </View>
+            <SignIn goBackToMain={this.goBackToMain.bind(this)} />
         );
         const signUpJSX = (
-            <View>
-                <TextInput
-                    style={inputStyle} placeholder="Enter your name"
-                    underlineColorAndroid={'transparent'}
-                />
-                <TextInput
-                    style={inputStyle} placeholder="Enter your email"
-                    underlineColorAndroid={'transparent'}
-                />
-                <TextInput
-                    style={inputStyle} placeholder="Enter your password"
-                    underlineColorAndroid={'transparent'}
-                />
-                <TextInput
-                    style={inputStyle} placeholder="Re-enter your password"
-                    underlineColorAndroid={'transparent'}
-                />
-                <TouchableOpacity style={btnsignIn}>
-                    <Text style={{ color: '#FFF' }}>SIGN UP NOW</Text>
-                </TouchableOpacity>
-            </View>
+           < SignUp gotoSignIn={this.gotoSignIn.bind(this)} />
 
         );
         const { isSignIn } = this.state;

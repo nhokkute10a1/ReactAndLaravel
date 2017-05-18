@@ -1,21 +1,46 @@
 import React, { Component } from 'react';
 import {
-    View, TouchableOpacity, Text, Image, StyleSheet, TextInput
+    View, TouchableOpacity, Text, Image, StyleSheet, TextInput, Alert
 } from 'react-native';
 import backSpecial from '../../media/appIcon/backs.png';
+
+import global from '../global';
+import getToken from '../../api/getToken';
+import changeInfoAPI from '../../api/changeInfo';
 
 export default class ChangeInfo extends Component {
     constructor(props) {
         super(props);
+        const { name, address, phone } = props.user;
         this.state = {
-            txtName: 'Nguyen Van Pho',
-            txtAddress: '92 Le Thi Rieng / Ben Thanh',
-            txtPhone: '01694472176'
+            txtName: name,
+            txtAddress: address,
+            txtPhone: phone
         };
     }
     goBackToMain() {
         const { navigator } = this.props;
         navigator.pop();
+    }
+    change() {
+        const { txtName, txtAddress, txtPhone } = this.state;
+        getToken()
+        .then(token => changeInfoAPI(token, txtName, txtAddress, txtPhone))
+        .then((user) => {
+            this.alertSuccess();
+            global.onSignIn(user);
+        })
+        .catch(error => console.log('===ERROR===', error));
+    }
+    alertSuccess() {
+        Alert.alert(
+            'Thông báo',
+            'Đã cập nhập thông tin thành công ',
+            [
+                { text: 'OK', onPress: this.goBackToMain.bind(this) },
+            ],
+            { cancelable: false }
+        );
     }
 
     render() {
@@ -23,7 +48,7 @@ export default class ChangeInfo extends Component {
             wrapper, header, headerTitle, backIconStyle, body,
             signInContainer, signInTextStyle, textInput
         } = styles;
-        const { name, address, phone } = this.state;
+        const { txtName, txtAddress, txtPhone } = this.state;
         return (
             <View style={wrapper}>
                 <View style={header}>
@@ -39,26 +64,26 @@ export default class ChangeInfo extends Component {
                         placeholder="Enter your name"
                         underlineColorAndroid={'transparent'}
                         autoCapitalize="none"
-                        value={name}
-                        onChangeText={txtName => this.setState({ ...this.state, txtName })}
+                        value={txtName}
+                        onChangeText={text => this.setState({ ...this.state, txtName: text })}
                     />
                     <TextInput
                         style={textInput}
                         placeholder="Enter your address"
                         underlineColorAndroid={'transparent'}
                         autoCapitalize="none"
-                        value={address}
-                        onChangeText={txtAddress => this.setState({ ...this.state, txtAddress })}
+                        value={txtAddress}
+                        onChangeText={text => this.setState({ ...this.state, txtAddress: text })}
                     />
                     <TextInput
                         style={textInput}
                         placeholder="Enter your phone number"
                         underlineColorAndroid={'transparent'}
                         autoCapitalize="none"
-                        value={phone}
-                        onChangeText={txtPhone => this.setState({ ...this.state, txtPhone })}
+                        value={txtPhone}
+                        onChangeText={text => this.setState({ ...this.state, txtPhone: text })}
                     />
-                    <TouchableOpacity style={signInContainer}>
+                    <TouchableOpacity style={signInContainer} onPress={this.change.bind(this)}>
                         <Text style={signInTextStyle}>CHANGE YOUR INFOMATION</Text>
                     </TouchableOpacity>
                 </View>

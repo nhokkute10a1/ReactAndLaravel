@@ -20,7 +20,7 @@ export default class Homes extends Component {
                                 topProducts={topProducts}
                             />);
                         case 'LIST_PRODUCT':
-                            return <ListProduct navigator={navigator} />;
+                            return <ListProduct navigator={navigator} category={route.category} />;
                         default:
                             return <ProductDetail navigator={navigator} product={route.product} />;
                     }

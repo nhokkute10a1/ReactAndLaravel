@@ -10,9 +10,9 @@ import styles from '../../../../style/style';
 const url = 'http://192.168.56.1/api/images/type/';
 
 export default class Category extends Component {
-    gotoListProduct() {
+    gotoListProduct(category) {
         const { navigator } = this.props;
-        navigator.push({ name: 'LIST_PRODUCT' });
+        navigator.push({ name: 'LIST_PRODUCT', category });
     }
     render() {
         const { types } = this.props;
@@ -24,7 +24,7 @@ export default class Category extends Component {
                         */}
 
                 {types.map(e => (
-                    <TouchableOpacity onPress={this.gotoListProduct.bind(this)} key={e.id}>
+                    <TouchableOpacity onPress={() => this.gotoListProduct(e)} key={e.id}>
                         {/*<Image source={{ uri: `http://192.168.56.1/api/images/type/${e.image}` }} style={imageStyle} >
                             <Text style={cateTitle}>{e.name}</Text>
                         </Image>*/}

@@ -3,7 +3,7 @@ import {
     StyleSheet, Text, TouchableOpacity, ListView, View, Image, Dimensions
 } from 'react-native';
 
-import sp1 from '../../../../media/temp/sp3.jpeg';
+//import sp1 from '../../../../media/temp/sp3.jpeg';
 //import sp4 from '../../../../media/temp/sp4.jpeg';
 import global from '../../../global';
 
@@ -17,7 +17,7 @@ function toTitleCase(str) {
 class SearchView extends Component {
     constructor(props) {
         super(props);
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 != r2 });
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
             listProduct: ds
         };
@@ -28,9 +28,9 @@ class SearchView extends Component {
         this.setState({ listProduct: this.state.listProduct.cloneWithRows(arrProduct) });
     }
 
-    gotoDetail() {
+    gotoDetail(product) {
         const { navigator } = this.props;
-        navigator.push({ name: 'PRODUCT_DETAIL' });
+        navigator.push({ name: 'PRODUCT_DETAIL', product });
     }
     render() {
         const {
@@ -45,7 +45,6 @@ class SearchView extends Component {
                     renderRow={productItem => (
                         <View style={product}>
                             <Image
-                                /*{{ uri: `${url}${productItem.images[0]} */
                                 source={{ uri: `${url}${productItem.images[0]}` }}
                                 style={productImage}
                             />
@@ -65,7 +64,10 @@ class SearchView extends Component {
                                         }}
                                     />
                                 </View>
-                                <TouchableOpacity style={showDetailContainer}>
+                                <TouchableOpacity
+                                    style={showDetailContainer}
+                                    onPress={() => this.gotoDetail(productItem)}
+                                >
                                     <Text style={txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
                             </View>
@@ -73,7 +75,7 @@ class SearchView extends Component {
                     )}
                 />
             </View>
-         
+
         );
     }
 }

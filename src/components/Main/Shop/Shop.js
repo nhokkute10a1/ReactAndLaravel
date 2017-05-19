@@ -24,7 +24,6 @@ import iSearch0 from './../../../media/appIcon/search0.png';
 import Header from './Header';
 
 export default class Shop extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -55,7 +54,10 @@ export default class Shop extends Component {
     addProductToCart(product) {
         /**
          * la phuoc thuc bat dong bo nen sd phuong thuc go back function
+         * some: kt phan tu trong mang neu co la true k co la false
          */
+        const isExist = this.state.cartArray.some(e => e.product.id === product.id);
+        if (isExist) return;
         this.setState({ cartArray: this.state.cartArray.concat({ product, quantity: 1 }) },
             () => saveCart(this.state.cartArray)
         );

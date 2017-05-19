@@ -5,11 +5,15 @@ import Authentication from './Authentication/Authentication';
 import ChangeInfo from './ChangeInfo/ChangeInfo';
 import Main from './Main/Main';
 import OrderHistory from './OrderHistory/OrderHistory';
+import refreshToken from '../api/refreshToken';
 
 // an statusbar
 StatusBar.setHidden(true);
 
 export default class App extends Component {
+    componentDidMount() {
+        setInterval(refreshToken, 30000);
+    }
     render() {
         // const { navigate } = this.props.navigation;
         return (

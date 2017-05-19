@@ -4,5 +4,7 @@ module.exports = {
     decrQuantity: null,
     removeProduct: null,
     onSignIn: null,
-    checkLogin: null
+    checkLogin: null,
+    gotoSearch: null,
+    setSearchArry: null
 };

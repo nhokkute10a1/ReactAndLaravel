@@ -6,5 +6,6 @@ module.exports = {
     onSignIn: null,
     checkLogin: null,
     gotoSearch: null,
-    setSearchArry: null
+    setSearchArry: null,
+    getOrderHistory: null,
 };

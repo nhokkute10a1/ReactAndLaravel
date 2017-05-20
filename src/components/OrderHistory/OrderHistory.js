@@ -4,10 +4,19 @@ import {
 } from 'react-native';
 import backSpecial from '../../media/appIcon/backs.png';
 
+import getOrderHistory from '../../api/getOrderHistory';
+import getToken from '../../api/getToken';
+
 export default class OrderHistory extends Component {
     constructor(props) {
         super(props);
         this.state = { arrOrder: [] };
+    }
+    componentDidMount() {
+        getToken()
+            .then(token => getOrderHistory(token))
+            .then(arrOrder => this.setState({ arrOrder }))
+            .catch(err => console.log('===ERROR===', err));
     }
     goBackToMain() {
         const { navigator } = this.props;
@@ -26,7 +35,59 @@ export default class OrderHistory extends Component {
                 </View>
                 <View style={body}>
                     <ScrollView>
-                        <View style={orderRow}>
+                        {this.state.arrOrder.map(e => (
+                            <View style={orderRow} key={e.id}>
+                                <View
+                                    style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-between'
+                                    }}
+                                >
+                                    <Text style={textId}>Order id:</Text>
+                                    <Text style={{ color: '#2ABB9C' }}>{e.id}</Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-between'
+                                    }}
+                                >
+                                    <Text style={textId}>OrderTime:</Text>
+                                    <Text style={{ color: '#C21C70' }}>{e.date_order}</Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-between'
+                                    }}
+                                >
+                                    <Text style={textId}>Status:</Text>
+                                    {/*neu = 0 thi Completed con neu =1  thi Pending */}
+                                    <Text
+                                        style={{ color: '#2ABB9C' }}
+                                    >
+                                        {(e.status === '0') ? 'Completed' : ' Pending'}
+                                    </Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-between'
+                                    }}
+                                >
+                                    <Text style={textId}>Total:</Text>
+                                    <Text
+                                        style={{
+                                            color: '#C21C70',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        {e.total}$
+                                    </Text>
+                                </View>
+                            </View>
+                        ))}
+                        {/*<View style={orderRow}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <Text style={textId}>Order id:</Text>
                                 <Text style={{ color: '#2ABB9C' }}>ORD001</Text>
@@ -117,7 +178,7 @@ export default class OrderHistory extends Component {
                                 <Text style={textId}>Total:</Text>
                                 <Text style={{ color: '#C21C70', fontWeight: 'bold' }}>100$</Text>
                             </View>
-                        </View>
+                        </View>*/}
                     </ScrollView>
                 </View>
             </View>
@@ -144,9 +205,9 @@ const styles = StyleSheet.create({
         borderRadius: 2,
         justifyContent: 'space-around'
     },
-    textId: { 
-        color: '#9A9A9A', 
-        fontWeight: 'bold' 
+    textId: {
+        color: '#9A9A9A',
+        fontWeight: 'bold'
     }
 
 });

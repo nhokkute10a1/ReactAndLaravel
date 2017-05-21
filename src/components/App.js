@@ -12,7 +12,7 @@ StatusBar.setHidden(true);
 
 export default class App extends Component {
     componentDidMount() {
-        setInterval(refreshToken, 30000);
+        setInterval(refreshToken, (604800));
     }
     render() {
         // const { navigate } = this.props.navigation;

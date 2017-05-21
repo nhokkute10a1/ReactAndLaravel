@@ -7,5 +7,4 @@ module.exports = {
     checkLogin: null,
     gotoSearch: null,
     setSearchArry: null,
-    getOrderHistory: null,
 };
